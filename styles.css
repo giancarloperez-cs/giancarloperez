@@ -1,0 +1,781 @@
+/* ================================================================
+   DIGITAL PORTFOLIO — styles.css
+   One stylesheet shared across all pages. Edit CSS variables in
+   section 1 to retheme the entire site from a single place.
+
+   ARCHITECTURE NOTE:
+   The site is full-width by default. Wrap content in .container
+   for the narrow editorial column, .container-wide for things
+   that need more room (photo grids, embeds), or .container-full
+   for true edge-to-edge. Never put max-width on individual
+   components — always wrap them in a container instead.
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. CSS VARIABLES
+   These control the entire color palette and layout widths.
+   Change a value here and it updates everywhere automatically.
+   ---------------------------------------------------------------- */
+:root {
+  /* Color palette */
+  --bg:         #03150f;   /* deep dark green — page background */
+  --text:       #ccd6f6;   /* off-white with a blue tint — main body text */
+  --text-muted: #8892b0;   /* muted blue-grey — captions, labels, secondary text */
+  --accent:     #8b9f81;   /* sage green — links, highlights, active nav */
+
+  /* Layout widths */
+  --max-width:       680px;   /* narrow editorial column */
+  --max-width-wide: 1100px;   /* wide content like photo grids */
+
+  /* Derived values — adjust to change subtle borders and hover surfaces */
+  --border:  rgba(136, 146, 176, 0.15);  /* thin divider lines */
+  --surface: rgba(139, 159, 129, 0.04);  /* hover background tint */
+}
+
+
+/* ----------------------------------------------------------------
+   2. RESET
+   box-sizing: border-box means padding and border count inside
+   an element's declared width — much easier to reason about.
+   ---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+
+/* ----------------------------------------------------------------
+   3. BODY & BASE TYPOGRAPHY
+   ---------------------------------------------------------------- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* ----------------------------------------------------------------
+   4. HEADINGS
+   Tighter line-height than body — large type that double-spaces
+   looks unintentional. Heavier weight builds hierarchy.
+   ---------------------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--text);
+}
+
+h1 { font-size: 2.5rem;  margin-bottom: 0.5rem; }
+h2 { font-size: 1.4rem;  margin-bottom: 1rem; }
+h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+h4 { font-size: 0.9rem;  margin-bottom: 0.4rem; color: var(--text-muted); font-weight: 500; }
+h5 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+
+/* ----------------------------------------------------------------
+   5. PARAGRAPHS & LISTS
+   ---------------------------------------------------------------- */
+p {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+
+/* ----------------------------------------------------------------
+   6. LINKS
+   ---------------------------------------------------------------- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+
+/* ----------------------------------------------------------------
+   7. MONOSPACE / CODE
+   ---------------------------------------------------------------- */
+code, .mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.85em;
+}
+
+
+/* ----------------------------------------------------------------
+   8. CONTAINERS — THE LAYOUT SYSTEM
+   This is the core of the layout. Every section of every page
+   should be wrapped in one of these three containers. Never
+   put max-width directly on a component — always wrap it.
+
+   .container       → narrow editorial column (default for prose)
+   .container-wide  → wider, for photo grids and embeds
+   .container-full  → edge-to-edge with side padding only
+   ---------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-wide {
+  max-width: var(--max-width-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-full {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
+/* ----------------------------------------------------------------
+   9. MAIN CONTENT AREA
+   Vertical breathing room. Horizontal padding lives on containers.
+   ---------------------------------------------------------------- */
+main {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+
+/* ----------------------------------------------------------------
+   10. NAVIGATION
+   The nav has no width constraint of its own — it lives inside
+   a .container in the HTML, which handles the centering.
+   ---------------------------------------------------------------- */
+.site-nav {
+  padding-top: 2rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+.site-nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.site-nav a.active {
+  color: var(--accent);
+}
+
+
+/* ----------------------------------------------------------------
+   11. FOOTER
+   Same pattern as the nav — no width constraint here, it's
+   wrapped in a .container in the HTML.
+   ---------------------------------------------------------------- */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 1;
+}
+
+
+/* ----------------------------------------------------------------
+   12. PAGE HEADER
+   The top block on interior pages. No max-width — it's wrapped
+   in a .container in the HTML.
+   ---------------------------------------------------------------- */
+.page-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.page-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   13. CONTENT SECTIONS
+   Each major section uses class="content-section" for vertical
+   spacing. The section-title is a small mono label with a thin
+   bottom border above the section's content.
+   ---------------------------------------------------------------- */
+.content-section {
+  margin-top: 3.5rem;
+}
+
+.page-header + .content-section,
+.container.page-header + .content-section,
+.container.page-header + .container .content-section {
+  margin-top: 0;
+}
+
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* ----------------------------------------------------------------
+   14. HERO — HOME PAGE
+   ---------------------------------------------------------------- */
+.hero {
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.hero .tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+}
+
+.hero .intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   15. PHOTO GRID
+   Lives inside a .container-wide. No width math here —
+   the parent container handles centering and sizing.
+   ---------------------------------------------------------------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.photo-grid img,
+.photo-grid video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+
+.photo-placeholder {
+  aspect-ratio: 4 / 3;
+  background-color: rgba(139, 159, 129, 0.05);
+  border: 1px dashed rgba(139, 159, 129, 0.22);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  opacity: 0.6;
+  user-select: none;
+}
+
+
+/* ----------------------------------------------------------------
+   16. IFRAME WRAPPER
+   For embedded PDFs (resume, personal narrative). Lives inside
+   a .container-wide so it doesn't fight for space.
+   ---------------------------------------------------------------- */
+.iframe-wrapper iframe {
+  display: block;
+  width: 100%;
+  min-height: 90vh;
+  border: 0;
+  border-radius: 3px;
+}
+
+.iframe-wrapper--resume iframe {
+  min-height: 150vh;
+}
+
+
+/* ----------------------------------------------------------------
+   17. QUICKLINKS — HOME PAGE
+   ---------------------------------------------------------------- */
+.quicklinks {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.quicklinks li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.quicklinks li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.quicklinks a {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.quicklinks a:hover {
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.quicklinks .link-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-left: 0.3rem;
+}
+
+
+/* ----------------------------------------------------------------
+   18. ARTIFACT SECTIONS — SHOWCASE & GLOBAL PAGES
+   ---------------------------------------------------------------- */
+.artifact-list {
+  margin-top: 1rem;
+}
+
+.artifact {
+  padding: 2.25rem 0 1.75rem 0;
+  border-top: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  transition: border-left-color 0.2s ease, padding-left 0.15s ease;
+}
+
+.artifact-list > .artifact:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.artifact:hover {
+}
+
+.artifact-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.artifact-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(139, 159, 129, 0.03);
+  border: 1px dashed rgba(139, 159, 129, 0.18);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.artifact-reflection {
+  margin-bottom: 1.5rem;
+}
+
+.reflection-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+
+/* ----------------------------------------------------------------
+   19. SLO LIST
+   ---------------------------------------------------------------- */
+.slo-list {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(136, 146, 176, 0.04);
+  border-radius: 4px;
+}
+
+.slo-list h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.slo-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.slo-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: rgba(139, 159, 129, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  margin: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   20. RESUME DOWNLOAD BUTTON
+   ---------------------------------------------------------------- */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.download-btn:hover {
+  background: rgba(139, 159, 129, 0.08);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.download-btn::before {
+  content: '↓';
+}
+
+
+/* ----------------------------------------------------------------
+   21. PDF LINK HELPER
+   ---------------------------------------------------------------- */
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.pdf-link::before {
+  content: '↗';
+  font-size: 0.9em;
+}
+
+
+/* ----------------------------------------------------------------
+   22. PROJECT CARDS — PROJECTS PAGE
+   ---------------------------------------------------------------- */
+.project-list {
+  margin-top: 1.25rem;
+}
+
+.project-card {
+  padding: 1.5rem 0 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  transition: border-left-color 0.2s ease, padding-left 0.15s ease, background 0.15s ease;
+}
+
+.project-card:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.project-card:hover {
+  border-left-color: var(--accent);
+  padding-left: 0.75rem;
+  background: var(--surface);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.project-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.project-link:hover {
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.project-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+}
+
+
+/* ----------------------------------------------------------------
+   23. TECH TAGS & STATUS BADGE
+   ---------------------------------------------------------------- */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  background: rgba(139, 159, 129, 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+
+.status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: rgba(136, 146, 176, 0.1);
+  border: 1px solid rgba(136, 146, 176, 0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   24. COLLEGE LIST — GLOBAL PAGE
+   ---------------------------------------------------------------- */
+.college-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.college-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.college-list li:last-child {
+  border-bottom: none;
+}
+
+.college-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  width: 54px;
+  flex-shrink: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   25. RESPONSIVE STYLES
+   ---------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .container,
+  .container-wide,
+  .container-full {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  main {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .project-card:hover,
+  .artifact:hover {
+    padding-left: 0.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.9rem;
+  }
+}

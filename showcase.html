@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Showcase — Digital Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container">
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">home</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="showcase.html" class="active">showcase</a></li>
+          <li><a href="global.html">global</a></li>
+            <li><a href="college.html">college</a></li>
+          <li><a href="projects.html">projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <section class="container">
+      <div class="page-header">
+        <span class="page-label">Senior Showcase</span>
+        <h1>Senior Showcase</h1>
+        <p class="page-subtitle">
+          My resume and three academic artifacts demonstrating mastery of the Schoolwide Learner Outcomes.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section class="container content-section">
+      <h2 class="section-title">Resume</h2>
+      <p>
+        My current resume covering academic, technical, and work experience.
+      </p>
+    </section>
+        <div class="container-wide"style="max-width: 850px; margin-top: 2rem;"">
+      <div class="iframe-wrapper iframe-wrapper--resume">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRV8hYfs6aUxXhX_GKEREtUZvYk0qu-i9mzQZkislbslCaV2uR0fNSrSX7-qgtWakZc8vNu2uLtzloa/pub?embedded=true"></iframe>
+      </div>
+            <a href="assets/docs/GiancarloPerez-Resume.pdf" class="download-btn" target="_blank" rel="noopener" style="margin-left: 7px;">
+        Download resume
+      </a>
+    </div>
+
+    <!-- EMBEDDED RESUME (optional — uncomment to show inline)
+    <div class="container-wide content-section">
+      <div class="iframe-wrapper iframe-wrapper--resume">
+        <iframe src="docs/resume.pdf" title="Resume"></iframe>
+      </div>
+    </div>
+    -->
+
+    <!-- ACADEMIC ARTIFACTS -->
+    <section class="container content-section">
+      <h2 class="section-title">Academic Artifacts</h2>
+
+      <div class="artifact-list">
+
+        <!-- ARTIFACT 1 -->
+        <article class="artifact">
+          <h3 class="artifact-title">NBA Stat Spin - AP Computer Science Principles</h3>
+
+          <div class="artifact-placeholder">
+            <img src="assets/video/nba-stats-app.gif" alt="Screenshot of NBA Stat Spin project" style="width: 100%; height: auto; border-radius: 0px;">
+          </div>
+
+          <!-- Or use a PDF link instead of an embed:
+          <a href="docs/artifact-1.pdf" class="pdf-link" target="_blank">View the full artifact</a>
+          -->
+
+          <div class="artifact-reflection">
+            <span class="reflection-label">Reflection</span>
+            <p>
+              The purpose of my NBA Stats Generator project was to build a code.org app that lets users quickly check NBA player statlines without having to look through box scores from every game of the season. Users can generate a random statline, search for a specific player, or save players to a favorites list. When I started the project I felt excited because I wanted to build something I thought was cool but wasn't sure how to work with a real sports dataset. A goal I set for myself was to finish all three features instead of abandoning the project halfway. I had to decide which NBA dataset to use and how to structure the app. To accomplish my goal, I chose to build the random statline generator first and then add other features from there. First, I picked an NBA dataset from a website called Kaggle. After that, I built the random statline generator to get the information from the dataset to the screen. Next, I added the player search. Finally, I built the favorites list.
+            </p>
+            <p>
+              Something I did well was researching ways in which I could improve my code. An area I need improvement in is documenting more of my program as I code. Next time, I will try to go more in depth with every feature. I am proud that I followed through and finished making the app. I am disappointed that I couldn't add more features I had in mind. I investigated the world by identifying an actual problem and researching how to solve it with real data. Specifically, I studied how NBA stats are structured across games and built a tool that makes them accessible to fans. I communicated ideas by selecting appropriate digital media to share information. Specifically, I built a code.org app where users can generate, search, and save player statlines utilizing the interface as a way to show off the data clearly.
+            </p>
+          </div>
+
+          <div class="slo-list">
+            <h5>Schoolwide Learner Outcomes addressed</h5>
+            <ul>
+              <li>Investigate the World</li>
+              <li>Communicate Ideas</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ARTIFACT 2 -->
+        <article class="artifact">
+          <h3 class="artifact-title">Rhetorical Analysis on Song - AP English Language</h3>
+
+          <div class="artifact-placeholder">
+            <img src="assets/docs/rhet.png" alt="Screenshot of Rhetorical Analysis on Song project" style="width: 100%; height: auto; border-radius: 0px;">
+          </div>
+
+          <div class="artifact-reflection">
+            <span class="reflection-label">Reflection</span>
+            <p>
+              [REFLECTION PARAGRAPH 1]
+            </p>
+            <p>
+              [REFLECTION PARAGRAPH 2 — SLOs and GPOs.]
+            </p>
+          </div>
+
+          <div class="slo-list">
+            <h5>Schoolwide Learner Outcomes addressed</h5>
+            <ul>
+              <li>Investigate the World</li>
+              <li>Recognize and Weigh Perspectives</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ARTIFACT 3 -->
+        <article class="artifact">
+          <h3 class="artifact-title">Civil Rights Leader Project - AP United States History</h3>
+
+          <div class="artifact-placeholder">
+            <img src="assets/docs/apush-facebook.png" alt="Screenshot of Civil Rights Leader Project" style="width: 100%; height: auto; border-radius: 0px;">
+
+          </div>
+
+          <div class="artifact-reflection">
+            <span class="reflection-label">Reflection</span>
+            <p>
+              The purpose of the “Facebook Project” in my AP U.S. History class was to present information about a civil rights leader using a Facebook profile format to better understand their actions, methods, and connections. I felt confident starting the project and aimed to choose a lesser-known leader to make my work unique.
+
+              I chose John Lewis because, although he was part of the Big Six who led the March on Washington in 1963, I had not learned much about him before. My partner and I researched using sources like civilrightstrail.com, history.com, and archives.gov, then completed the slides using the provided template. We also included quotes and interactions from other civil rights leaders connected to Lewis.
+
+              Through this project, I learned that John Lewis helped found the Student Nonviolent Coordinating Committee (SNCC), which promoted nonviolent protest, and that he played a key role in the March on Washington. I also realized I admire his impact on society. I did well in finding credible sources but need to improve on proofreading and submitting work carefully. In the future, I will complete assignments earlier to avoid mistakes.
+            </p>
+            <p>
+              Throughout this project, I recognized and weighed perspectives by explaining the perspectives of civil rights leaders during the Civil Rights era, such as the perspectives of John Lewis himself and his peers. Additionally, I included actions done by John Lewis throughout his era that impacted the civil rights movement and pushed him toward his goals. During this project, I also communicated ideas in different ways when I included the ideas of many different civil rights leaders throughout the Facebook project. Specifically, I included the views of MLK Jr, Diane Nash, Wyche Flower, and many other civil rights leaders in order to show how ideas were communicated between each other and to the world.
+            </p>
+          </div>
+
+          <div class="slo-list">
+            <h5>Schoolwide Learner Outcomes addressed</h5>
+            <ul>
+              <li>Investigate the World</li>
+              <li>Communicate Ideas</li>
+              <li>Take Action</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="site-footer">
+        <span class="footer-date">Last updated April 2026</span>
+        <div class="footer-links">
+          <a href="https://github.com/giancarloperez-cs">github</a>
+          <a href="mailto:giancarloperez.cs@gmail.com">email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

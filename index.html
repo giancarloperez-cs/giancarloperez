@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Digital Portfolio</title>
+
+  <!-- Google Fonts: Inter (body) + JetBrains Mono (code/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 
+       NAVIGATION
+       Wrapped in .container so it lines up with narrow content.
+       -->
+  <header>
+    <div class="container">
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="active">home</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="showcase.html">showcase</a></li>
+          <li><a href="global.html">global</a></li>
+            <li><a href="college.html">college</a></li>
+          <li><a href="projects.html">projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 
+         HERO — narrow column
+         -->
+    <section class="container hero">
+      <h1>Giancarlo Perez</h1>
+      <p class="tagline">student · programmer · gooner</p>
+      <p class="intro">
+      </p>
+    </section>
+
+    <!-- 
+         PHOTO STORY HEADING — narrow column
+         -->
+    <section class="container content-section">
+      <h2 class="section-title">Photo Story</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+        Who I am, my interests, experiences, and people that shaped who I am.
+      </p>
+    </section>
+
+    <!-- 
+         PHOTO GRID — wide column
+         To make this even wider, change .container-wide to .container-full.
+         To swap a placeholder: replace the <img> with your real file.
+         -->
+    <div class="container-wide">
+      <div class="photo-grid">
+        <img src="assets/photos/tacos-driving.jpg" alt="Tacos on a drive">
+        <img src="assets/photos/fun-lb-ride.jpg" alt="Long Beach bike ride">
+        <video src="assets/photos/balboa-bike-boat.mp4" autoplay loop muted playsinline></video>
+        <img src="assets/photos/nutrifind-group.jpg" alt="NutriFind team" style="object-position: center 50%;">
+        <img src="assets/photos/tuffff.JPG" alt="Hanging out">
+        <img src="assets/photos/redondo-path.jpg" alt="Redondo path" style="object-position: center 50%;">
+        <video src="assets/photos/birthday-cake.mp4" autoplay loop muted playsinline></video>
+        <img src="assets/photos/sunrise.jpg" alt="Sunrise" style="object-position: center 50%;">
+        <img src="assets/photos/ktown.jpg" alt="Koreatown" style="object-position: center 50%;">
+        <img src="assets/photos/camping.jpg" alt="Camping trip" style="object-position: center 15%;">
+        <img src="assets/photos/calm-before.jpg" alt="The calm before" style="object-position: center 60%;">
+        <img src="assets/photos/pool-group.JPG" alt="Pool day" style="object-position: center 50%;">
+        <img src="assets/photos/redondo.jpg" alt="Redondo Beach" style="object-position: center 50%;">
+        <img src="assets/photos/manga-birthday.jpg" alt="Manga birthday" style="object-position: center 40%;">
+        <video src="assets/photos/bus-stop.mp4" autoplay loop muted playsinline style="object-position: center 60%; transform: scaleX(-1);"></video>
+        <img src="assets/photos/lb-thursday.JPG" alt="Long Beach Thursday" style="object-position: center 30%;">
+        <img src="assets/photos/jus-poke.jpg" alt="Jus Poke" style="object-position: center 30%;">
+        <img src="assets/photos/nutrifind-dev.jpg" alt="NutriFind dev session" style="object-position: center 30%;">
+        <video src="assets/photos/IMG_5067 2.MOV.mp4" autoplay loop muted playsinline style="object-position: center 60%; transform: scaleX(-1);"></video>
+        <img src="assets/photos/imperial-biking.jpg" alt="Imperial biking" style="object-position: center 30%;">
+        <img src="assets/photos/san-gabriel-river.jpg" alt="San Gabriel river" style="object-position: center 30%;">
+      </div>
+    </div>
+
+    <!-- 
+         QUICKLINKS — narrow column
+         -->
+    <section class="container content-section">
+      <h2 class="section-title">What you'll find here</h2>
+      <ul class="quicklinks">
+        <li>
+          <a href="about.html">About</a>
+          <span class="link-desc">· who I am, my story, and the people who shaped me</span>
+        </li>
+        <li>
+          <a href="showcase.html">Senior Showcase</a>
+          <span class="link-desc">· my resume and three academic artifacts</span>
+        </li>
+        <li>
+          <a href="global.html">Global Citizenship</a>
+          <span class="link-desc">· community action, service, activities, and my college journey</span>
+        </li>
+        <li>
+          <a href="projects.html">Projects</a>
+          <span class="link-desc">· things I've built with code</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- 
+       FOOTER — wrapped in .container
+       -->
+  <footer>
+    <div class="container">
+      <div class="site-footer">
+        <span class="footer-date">Last updated April 2026</span>
+        <div class="footer-links">
+          <a href="https://github.com/giancarloperez-cs">github</a>
+          <a href="mailto:giancarloperez.cs@gmail.com">email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

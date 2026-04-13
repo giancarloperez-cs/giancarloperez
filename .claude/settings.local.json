@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:8765/showcase.html)",
+      "Bash(python3 -c \" import sys from html.parser import HTMLParser class StructureParser\\(HTMLParser\\): def __init__\\(self\\): super\\(\\).__init__\\(\\) self.depth = 0 self.relevant = False self.in_main = False def handle_starttag\\(self, tag, attrs\\): attrs_dict = dict\\(attrs\\) classes = attrs_dict.get\\('class', ''\\) if tag == 'main': self.in_main = True if self.in_main: indent = ' ' * self.depth print\\(f'{indent}<{tag} class=\\\\\"{classes}\\\\\">'\\) self.depth += 1 def handle_endtag\\(self, tag\\): self.depth -= 1 if self.in_main: indent = ' ' * self.depth print\\(f'{indent}</{tag}>'\\) if tag == 'main': self.in_main = False p = StructureParser\\(\\) p.feed\\(sys.stdin.read\\(\\)\\) \")",
+      "Bash(npx --yes playwright@latest chromium --screenshot --viewport-size=1280,900 http://localhost:8765/showcase.html /tmp/showcase-screenshot.png)",
+      "Bash(open:*)",
+      "Bash(osascript -e ':*)"
+    ]
+  }
+}
