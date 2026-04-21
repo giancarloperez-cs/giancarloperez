@@ -64,6 +64,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
 }
 
 
@@ -125,8 +126,23 @@ a {
   transition: color 0.2s ease;
 }
 
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
 a:hover {
   color: var(--text);
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 
@@ -775,7 +791,90 @@ main {
 
 
 /* ----------------------------------------------------------------
-   25. RESPONSIVE STYLES
+   26. ALBUM SHELVES — INDEX ONLY
+   Fixed sidebars flanking the content on wide screens.
+   ---------------------------------------------------------------- */
+/* ----------------------------------------------------------------
+   ALBUM SHELVES — homepage only
+   Fixed to the sides of the page, spread down the full height.
+   Only visible on wide screens (1200px+).
+   ---------------------------------------------------------------- */
+body {
+  position: relative;
+}
+
+.shelf {
+  display: none;
+  position: absolute;
+  top: -10%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 4rem 0;
+  z-index: 50;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.shelf:hover {
+  opacity: 0.85;
+}
+
+.shelf-left {
+  left: 100px;
+}
+
+.shelf-right {
+  right: 100px;
+}
+
+.shelf-label {
+  writing-mode: vertical-lr;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.shelf-item {
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shelf-item:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 12px rgba(139, 159, 129, 0.25);
+}
+
+.shelf-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelf-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--border);
+}
+
+@media (min-width: 1200px) {
+  .shelf {
+    display: flex;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   27. RESPONSIVE STYLES
    ---------------------------------------------------------------- */
 @media (max-width: 600px) {
   .container,
@@ -817,4 +916,80 @@ main {
   .page-header h1 {
     font-size: 1.9rem;
   }
+}
+::selection {
+  background: rgba(139, 159, 129, 0.3);
+  color: var(--text);
+}
+@view-transition {
+  navigation: auto;
+}
+.site-nav a.active::after {
+  width: 100%;
+}
+.hero, .content-section, .page-header {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.hero { animation-delay: 0.1s; }
+.content-section:nth-of-type(1) { animation-delay: 0.2s; }
+.content-section:nth-of-type(2) { animation-delay: 0.3s; }
+.content-section:nth-of-type(3) { animation-delay: 0.4s; }
+.content-section:nth-of-type(4) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 1.2s steps(16) 0.3s forwards;
+  border-right: 2px solid var(--accent);
+}
+
+@keyframes typing {
+  to { width: 60%; }
+}
+.photo-grid img,
+.photo-grid video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+  transition: transform 0.2s ease, filter 0.25s ease;
+}
+.cursor-trail {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+  animation: trailFade 0.5s ease forwards;
+}
+
+@keyframes trailFade {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-trail { display: none; }
 }

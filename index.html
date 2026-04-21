@@ -13,6 +13,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!--ALBUM SHELVES-->
+  <div class="shelf shelf-left">
+    <span class="shelf-label"></span>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/gluee-album.jpg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/no-title-3-album.jpg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/pkmn-white-album.jpg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/jaco-album.jpg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/icedancer-album.jpeg" alt="Album 1"></div>
+  </div>
+
+  <div class="shelf shelf-right">
+    <span class="shelf-label"></span>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/eureka-album.jpeg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/sbr-album.jpg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/u-album.jpeg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/a-moon-shaped-pool-album.jpeg" alt="Album 1"></div>
+    <div class="shelf-item" title="Album Name — Artist"><img src="assets/photos/albums/plastic-album.jpeg" alt="Album 1"></div>
+  </div>
+<!--ALBUM SHELVES-->
 
   <header>
     <div class="container">
@@ -32,7 +51,18 @@
   <main>
 
     <section class="container hero">
+      <!--<pre class="ascii-name" aria-hidden="true">
+      ________                                __
+      / ____(_)___ _____  _________ ________  / /___
+    / / __/ / __ `/ __ \/ ___/ __ `/ ___/ / / __ \
+    / /_/ / / /_/ / / / / /__/ /_/ / /  / / / /_/ /
+    \____/_/\__,_/_/ /_/\___/\__,_/_/  /_/\____/
+      </pre>-->
+      
       <h1>Giancarlo Perez</h1>
+      <pre class="ascii-footer" aria-hidden="true">
+~^~^~^~^~^~^~^~^~^~~^~^~^~^~^~^~^~^~^~
+</pre>
       <p class="tagline">student · programmer · learner </p>
       <p class="intro">
       </p>
@@ -109,6 +139,48 @@
       </div>
     </div>
   </footer>
+<script>
+document.querySelectorAll('.photo-grid img, .photo-grid video').forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.03)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'perspective(600px) rotateY(0) rotateX(0) scale(1)';
+  });
+});
+</script>
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.15 });
 
+document.querySelectorAll('.photo-grid img, .photo-grid video').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = `opacity 0.6s ease ${(i % 3) * 0.1}s, transform 0.6s ease ${(i % 3) * 0.1}s`;
+  observer.observe(el);
+});
+</script>
+<script>
+let lastDot = 0;
+document.addEventListener('mousemove', (e) => {
+  if (Date.now() - lastDot < 40) return;
+  lastDot = Date.now();
+  const dot = document.createElement('div');
+  dot.className = 'cursor-trail';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  document.body.appendChild(dot);
+  setTimeout(() => dot.remove(), 700);
+});
+</script>
 </body>
 </html>
