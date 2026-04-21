@@ -822,11 +822,11 @@ body {
 }
 
 .shelf-left {
-  left: 100px;
+  left: 60px;
 }
 
 .shelf-right {
-  right: 100px;
+  right: 60px;
 }
 
 .shelf-label {
@@ -970,24 +970,15 @@ body {
   display: block;
   transition: transform 0.2s ease, filter 0.25s ease;
 }
-.cursor-trail {
-  position: fixed;
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  opacity: 0.5;
-  transform: translate(-50%, -50%);
-  animation: trailFade 0.5s ease forwards;
-}
-
 @keyframes trailFade {
   to {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
   }
+}
+
+.cursor-trail {
+  animation: trailFade 0.4s ease forwards;
 }
 
 @media (pointer: coarse) {
