@@ -121,12 +121,12 @@ li {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.15s ease;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  text-decoration: underline;
-  opacity: 0.8;
+  color: var(--text);
 }
 
 
@@ -206,13 +206,28 @@ main {
   letter-spacing: 0.02em;
   color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.15s ease;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
 }
 
 .site-nav a:hover {
-  color: var(--text);
+  color: var(--accent);
   text-decoration: none;
-  opacity: 1;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
 }
 
 .site-nav a.active {
@@ -251,13 +266,28 @@ main {
   font-size: 0.74rem;
   color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.15s ease;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s ease;
 }
 
 .footer-links a:hover {
   color: var(--accent);
   text-decoration: none;
-  opacity: 1;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
 }
 
 
@@ -373,6 +403,13 @@ main {
   object-fit: cover;
   border-radius: 3px;
   display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.photo-grid img:hover,
+.photo-grid video:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08);
 }
 
 .photo-placeholder {
@@ -437,13 +474,12 @@ main {
   color: var(--text);
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
 }
 
 .quicklinks a:hover {
   color: var(--accent);
   text-decoration: none;
-  opacity: 1;
 }
 
 .quicklinks .link-desc {
@@ -465,7 +501,7 @@ main {
   padding: 2.25rem 0 1.75rem 0;
   border-top: 1px solid var(--border);
   border-left: 2px solid transparent;
-  transition: border-left-color 0.2s ease, padding-left 0.15s ease;
+  transition: border-left-color 0.25s ease, padding-left 0.25s ease, background 0.25s ease;
 }
 
 .artifact-list > .artifact:first-child {
@@ -474,6 +510,9 @@ main {
 }
 
 .artifact:hover {
+  border-left-color: var(--accent);
+  padding-left: 0.75rem;
+  background: var(--surface);
 }
 
 .artifact-title {
@@ -571,13 +610,14 @@ main {
   letter-spacing: 0.04em;
   border-radius: 3px;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.25s ease;
+  background: transparent;
 }
 
 .download-btn:hover {
-  background: rgba(139, 159, 129, 0.08);
+  background: rgba(139, 159, 129, 0.12);
+  transform: translateY(-2px);
   text-decoration: none;
-  opacity: 1;
 }
 
 .download-btn::before {
@@ -615,7 +655,7 @@ main {
   padding: 1.5rem 0 1.5rem 0;
   border-top: 1px solid var(--border);
   border-left: 2px solid transparent;
-  transition: border-left-color 0.2s ease, padding-left 0.15s ease, background 0.15s ease;
+  transition: border-left-color 0.25s ease, padding-left 0.25s ease, background 0.25s ease;
 }
 
 .project-card:last-child {
@@ -656,7 +696,6 @@ main {
 .project-link:hover {
   color: var(--accent);
   text-decoration: none;
-  opacity: 1;
 }
 
 .project-description {
