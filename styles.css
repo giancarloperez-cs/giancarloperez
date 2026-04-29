@@ -917,6 +917,105 @@ body {
     font-size: 1.9rem;
   }
 }
+/* ----------------------------------------------------------------
+   25. PRESENTATION LAUNCHER — PROJECTS PAGE
+   ---------------------------------------------------------------- */
+.launcher-group {
+  margin-bottom: 2rem;
+}
+
+.launcher-group-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.launcher-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.1rem 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: rgba(139, 159, 129, 0.03);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.launcher-card:hover {
+  border-color: var(--accent);
+  background: rgba(139, 159, 129, 0.08);
+  box-shadow: 0 0 20px rgba(139, 159, 129, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.launcher-card::after {
+  display: none;
+}
+
+.launcher-card--live {
+  border-color: rgba(139, 159, 129, 0.25);
+}
+
+.launcher-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  background: rgba(136, 146, 176, 0.1);
+  border: 1px solid rgba(136, 146, 176, 0.18);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  align-self: flex-start;
+  margin-bottom: 0.35rem;
+}
+
+.launcher-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.launcher-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.launcher-arrow {
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.launcher-card:hover .launcher-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 600px) {
+  .launcher-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 ::selection {
   background: rgba(139, 159, 129, 0.3);
   color: var(--text);

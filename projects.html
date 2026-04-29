@@ -121,6 +121,60 @@
       </div>
     </section>
 
+    <!-- PRESENTATION LAUNCHER -->
+    <section class="container content-section">
+      <h2 class="section-title">Launch Pad</h2>
+      <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace;">click any card — or press its key — to open in a new tab</p>
+
+      <div class="launcher-group">
+        <span class="launcher-group-label">Portfolio</span>
+        <div class="launcher-grid">
+          <a href="index.html" target="_blank" class="launcher-card">
+            <span class="launcher-key">1</span>
+            <span class="launcher-title">Home</span>
+            <span class="launcher-desc">main landing page</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+          <a href="showcase.html" target="_blank" class="launcher-card">
+            <span class="launcher-key">2</span>
+            <span class="launcher-title">Senior Showcase</span>
+            <span class="launcher-desc">resume + academic artifacts</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+          <a href="global.html" target="_blank" class="launcher-card">
+            <span class="launcher-key">3</span>
+            <span class="launcher-title">Global Citizenship</span>
+            <span class="launcher-desc">NutriFind, internship, robotics</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+          <a href="about.html" target="_blank" class="launcher-card">
+            <span class="launcher-key">4</span>
+            <span class="launcher-title">About</span>
+            <span class="launcher-desc">who I am</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="launcher-group">
+        <span class="launcher-group-label">Live</span>
+        <div class="launcher-grid">
+          <a href="https://nutrifind-platform.netlify.app/" target="_blank" rel="noopener" class="launcher-card launcher-card--live">
+            <span class="launcher-key">5</span>
+            <span class="launcher-title">NutriFind</span>
+            <span class="launcher-desc">live deployed web app</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+          <a href="https://github.com/giancarloperez-cs" target="_blank" rel="noopener" class="launcher-card">
+            <span class="launcher-key">6</span>
+            <span class="launcher-title">GitHub</span>
+            <span class="launcher-desc">all source code & repos</span>
+            <span class="launcher-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -135,5 +189,19 @@
     </div>
   </footer>
 
+<script>
+const launchTargets = {
+  '1': 'index.html',
+  '2': 'showcase.html',
+  '3': 'global.html',
+  '4': 'about.html',
+  '5': 'https://nutrifinder.netlify.app/',
+  '6': 'https://github.com/giancarloperez-cs'
+};
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (launchTargets[e.key]) window.open(launchTargets[e.key], '_blank');
+});
+</script>
 </body>
 </html>
